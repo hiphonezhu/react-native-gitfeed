@@ -262,7 +262,7 @@ const GHCell = React.createClass({
     }
 
     return (
-      <TouchableHighlight underlayColor={'lightGray'} onPress={this.cellAction()}>
+      <TouchableHighlight underlayColor={'gray'} onPress={this.cellAction()}>
         <View style={styles.cellContentView}>
           <View style={styles.cellUp}>
             <TouchableOpacity onPress={this.openAuthor}>

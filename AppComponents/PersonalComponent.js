@@ -69,7 +69,7 @@ const PersonComponent = React.createClass({
         contentOffset={{x:0, y:-64}}
         >
         <TouchableHighlight
-          underlayColor={'lightGray'}
+          underlayColor={'gray'}
           style={styles.userTouch}
           onPress={() => this.props.navigator.push({id: 'user', obj: user})}>
           <View style={styles.user}>
@@ -128,7 +128,7 @@ var styles = StyleSheet.create({
     borderColor: '#EDECF1',
   },
   avatar: {
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
     borderRadius: 2,
     width: 48,
     height: 48,

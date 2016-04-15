@@ -475,7 +475,7 @@ var styles = StyleSheet.create({
   profileImage: {
     width: 110,
     height: 110,
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
     borderRadius: 3,
   },
   profileInfo: {
@@ -527,7 +527,7 @@ var styles = StyleSheet.create({
     marginLeft: 3,
     borderRadius: 2,
     marginBottom: 2,
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
   },
   status: {
     flexDirection: 'column',

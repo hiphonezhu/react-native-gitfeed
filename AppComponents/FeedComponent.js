@@ -116,7 +116,7 @@ var styles = StyleSheet.create({
     marginBottom: 10,
   },
   reloadText: {
-    borderColor: 'lightGray',
+    borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 3,
     marginTop: 20,

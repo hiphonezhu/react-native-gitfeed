@@ -452,13 +452,13 @@ const WebToolBar = React.createClass({
 
   render() {
     const backOpacity = this.props.backAble ? 0.5 : 1.0;
-    const backColor = this.props.backAble ? Colors.blue : 'lightGray';
+    const backColor = this.props.backAble ? Colors.blue : 'gray';
 
     const forwardOpacity = this.props.forwardAble ? 0.5 : 1.0;
-    const forwardColor = this.props.forwardAble ? Colors.blue : 'lightGray';
+    const forwardColor = this.props.forwardAble ? Colors.blue : 'gray';
 
     const refreshOpacity = this.props.refreshAble ? 0.5 : 1.0;
-    const refreshColor = this.props.refreshAble ? Colors.blue : 'lightGray';
+    const refreshColor = this.props.refreshAble ? Colors.blue : 'gray';
 
     let bottom = 49;
     if (Platform.OS === 'android') {
@@ -542,7 +542,7 @@ var styles = StyleSheet.create({
   repoAvatar: {
     width: 30,
     height: 30,
-    backgroundColor:'lightGray',
+    backgroundColor:'gray',
     borderRadius: 2,
   },
   leftAction: {

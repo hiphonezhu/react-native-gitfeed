@@ -30,7 +30,7 @@ const UserCell = React.createClass({
     const user = this.props.user;
 
     return (
-      <TouchableHighlight onPress={this.openTargetUser} underlayColor={'lightGray'}>
+      <TouchableHighlight onPress={this.openTargetUser} underlayColor={'gray'}>
         <View style={styles.cellContentView}>
           <Image style={styles.avatar} source={{uri: user.avatar_url}}/>
           <Text style={styles.userName}>{user.login}</Text>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginLeft: 15,
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
   },
   userName: {
     color: 'black',

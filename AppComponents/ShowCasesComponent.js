@@ -150,7 +150,7 @@ const ShowcaseCell = React.createClass({
       <TouchableOpacity
         style={[styles.container, {height: this.props.height}]}
         onPress={this.onSelectCell}
-        underlayColor={'lightGray'}>
+        underlayColor={'gray'}>
         <Image
           style={styles.showcase}
           source={{uri: showcase.image_url}}

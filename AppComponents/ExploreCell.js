@@ -49,7 +49,7 @@ const ExploreCell = React.createClass({
   render() {
     const repo = this.props.trendRepo;
     return (
-      <TouchableHighlight underlayColor={'lightGray'} onPress={this.onPressCell}>
+      <TouchableHighlight underlayColor={'gray'} onPress={this.onPressCell}>
         <View style={styles.cellContentView}>
           <View style={styles.cellUp}>
             <TouchableOpacity onPress={this.openAuthor}>

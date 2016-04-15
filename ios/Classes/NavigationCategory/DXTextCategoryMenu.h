@@ -30,7 +30,7 @@
 // Selected color, default is red
 @property (nonatomic, strong) UIColor *selectedColor;
 
-// UnSelected color, default is lightgray
+// UnSelected color, default is gray
 @property (nonatomic, strong) UIColor *unSelectedColor;
 
 // The menu contentInset in container. default is {2, 5, 2, 5}

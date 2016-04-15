@@ -34,7 +34,7 @@ const GHCell = React.createClass({
     return (
       <TouchableHighlight
         onPress={this.openTargetRepo}
-        underlayColor={'lightGray'}>
+        underlayColor={'gray'}>
         <View style={styles.cellContentView}>
           <View style={styles.cellLeft}>
             <View style={styles.cellLeftRepo}>

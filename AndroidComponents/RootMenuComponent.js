@@ -140,7 +140,7 @@ var styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   avatar: {
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
     borderRadius: 30,
     width: 60,
     height: 60,

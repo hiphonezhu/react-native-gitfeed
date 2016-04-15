@@ -138,7 +138,7 @@ const LanguageCell = React.createClass({
 
   render() {
     return (
-      <TouchableHighlight onPress={this.onSelectCell} underlayColor={'lightGray'}>
+      <TouchableHighlight onPress={this.onSelectCell} underlayColor={'gray'}>
         <View style={styles.cellContentView}>
           <Text style={styles.userName}>{this.props.name}</Text>
         </View>

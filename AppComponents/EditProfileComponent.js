@@ -526,7 +526,7 @@ const styles = StyleSheet.create({
     margin:10,
   },
   avatar: {
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
     borderRadius: AVATAR_SIZE/2,
     width: AVATAR_SIZE,
     height: AVATAR_SIZE,
@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
   },
   breakLine: {
     height:1,
-    backgroundColor:'lightGray',
+    backgroundColor:'gray',
   },
 });
 

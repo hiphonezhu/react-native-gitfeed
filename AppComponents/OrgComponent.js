@@ -253,7 +253,7 @@ var styles = StyleSheet.create({
   profileImage: {
     width: 110,
     height: 110,
-    backgroundColor: 'lightGray',
+    backgroundColor: 'gray',
     borderRadius: 3,
   },
   profileInfo: {
