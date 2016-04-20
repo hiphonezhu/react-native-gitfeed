@@ -11,7 +11,13 @@ const {
   ProgressBarAndroid,
 } = React;
 
+/**
+ * 通用组件
+ */
 class CommonComponents {
+  /**
+   * 加载视图
+   */
   static renderLoadingView() {
     if (Platform.OS === 'android') {
       return (

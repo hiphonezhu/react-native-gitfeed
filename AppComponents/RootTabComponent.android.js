@@ -2,7 +2,7 @@ const React = require('react-native');
 const Routes = require('./Routes');
 const MenuComponent = require('../AndroidComponents/RootMenuComponent');
 const OnboardComponent = require('./OnboardComponent');
-const ScrollableTabView = require('react-native-scrollable-tab-view');
+const ScrollableTabView = require('react-native-scrollable-tab-view'); // 标签导航, see[https://www.npmjs.com/package/react-native-scrollable-tab-view]
 const TabBar = require('./TabBar.android');
 
 const {
@@ -15,6 +15,9 @@ const {
   View,
 } = React;
 
+/**
+ * 首页
+ */
 const UIExplorerApp = React.createClass({
   render() {
     return (

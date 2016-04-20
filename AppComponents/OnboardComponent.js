@@ -19,7 +19,9 @@ const {
 } = React;
 
 const WEBVIEWREF = 'webview';
-
+/**
+ * 开始使用界面，输入用户名
+ */
 const OnboardComponent = React.createClass({
   propTypes: {
     didOnboard: React.PropTypes.func,
@@ -33,19 +35,25 @@ const OnboardComponent = React.createClass({
     }
   },
 
+  /**
+   * 提交验证
+   */
   submitOnboard() {
+    // 未输入username，直接返回
     if (this.state.username.length == 0) return;
 
+    // 正在验证
     this.setState({
       loadingError: null,
       loading: true,
     });
+    // 验证请求
     GHService.onboard(this.state.username)
       .then(value => {
         this.setState({
           loading: false,
         })
-
+        // 调用index.android.js的didOnboard方法(判断方法不为空再调用)
         this.props.didOnboard && this.props.didOnboard(value);
       })
       .catch(err => {
@@ -56,11 +64,15 @@ const OnboardComponent = React.createClass({
 
         const needLogin = err.message.indexOf('rate') != -1;
         if (needLogin) {
+          // 调用index.android.js的didOnboard方法
           this.props.didOnboard && this.props.didOnboard(null, needLogin);
         }
       })
   },
 
+  /**
+   * 输入框文字变化事件
+   */
   onNameChange(text) {
     this.setState({
       username: text,
@@ -76,6 +88,7 @@ const OnboardComponent = React.createClass({
 
   render() {
     let failedDesc;
+    // 加载失败
     if (this.state.loadingError) {
       failedDesc = (
         <Text
@@ -155,7 +168,6 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 15,
     borderWidth: 1,
-    borderColor: Colors.black,
     height: 30,
     alignSelf: 'stretch',
     marginTop: 5,
@@ -172,7 +184,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: Colors.black,
     justifyContent: 'center',
     alignItems: 'stretch',
     borderRadius: 4,

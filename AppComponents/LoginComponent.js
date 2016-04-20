@@ -19,11 +19,15 @@ const {
 
 const WEBVIEWREF = 'webview';
 
+/**
+ * 登陆组件，‘Please Logn now’页面，非输入username页面
+ */
 const LoginComponent = React.createClass({
+  // 属性类型约束
   PropTypes: {
     /* A next action promise */
-    nextPromise: React.PropTypes.object,
-    didLogin: React.PropTypes.func,
+    nextPromise: React.PropTypes.object, // object类型
+    didLogin: React.PropTypes.func, // 方法类型
   },
 
   getInitialState() {

@@ -36,6 +36,9 @@ const {
 } = React;
 
 const NavigationBarRouteMapper = {
+  /**
+   * 左边按钮
+   */
   LeftButton: function(route, navigator, index, navState) {
     if (index === 0 || route.id === 'login') {
       return null;
@@ -63,6 +66,9 @@ const NavigationBarRouteMapper = {
     );
   },
 
+  /**
+   * 右边按钮
+   */
   RightButton: function(route, navigator, index, navState) {
     let rightButton;
     switch (route.id) {
@@ -107,6 +113,9 @@ const NavigationBarRouteMapper = {
     return rightButton;
   },
 
+  /**
+   * 标题
+   */
   Title: function(route, navigator, index, navState) {
     let title;
     switch (route.id) {
@@ -220,8 +229,15 @@ const NavigationBarRouteMapper = {
 };
 
 const routes = {
+  // 为每个tab生成一个导航控制器
 	navigator(initialRoute) {
 		return (
+      /**
+       * initialRoute 默认显示的路由
+       * renderScene 根据路由和导航来渲染场景
+       * configureScene 配置场景的动画和手势
+       * navigationBar 提供一个在场景切换的时候保持的导航栏
+       */
 			<Navigator
 				initialRoute={{id: initialRoute}}
 				renderScene={this.renderScene}
@@ -229,7 +245,7 @@ const routes = {
           if (route.sceneConfig) {
             return route.sceneConfig;
           }
-          return Navigator.SceneConfigs.FloatFromRight;
+          return Navigator.SceneConfigs.VerticalUpSwipeJump;
         }}
 				navigationBar={
 					<Navigator.NavigationBar
@@ -243,6 +259,9 @@ const routes = {
 		);
 	},
 
+  /**
+   * tab的文字和图片
+   */
   _tabObjForRoute(routeName) {
     let tab = {tabName: 'Feed', iconName: 'ios-home'};
     switch (routeName) {
@@ -263,8 +282,14 @@ const routes = {
     return tab;
   },
 
+  /**
+   * 根据路由和导航来渲染场景
+   */
 	renderScene(route, navigator) {
     DXRNUtils.trackClick('渲染现实的页面' + route.id);
+    /**
+     * 返回事件
+     */
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (navigator && navigator.getCurrentRoutes().length > 1) {
         navigator.pop();
@@ -275,6 +300,7 @@ const routes = {
 
 		switch (route.id) {
       case 'feed':
+        // 将导航器通过FeedComponent的props.navigator进行传递
         return <FeedComponent navigator={navigator} tabLabel="Daily"/>;
       case 'user':
         return <UserComponent user={route.obj} navigator={navigator}/>;

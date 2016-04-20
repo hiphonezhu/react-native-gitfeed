@@ -33,6 +33,9 @@ var styles = StyleSheet.create({
   },
 });
 
+/**
+ * Tab
+ */
 var FacebookTabBar = React.createClass({
   selectedTabIcons: [],
   unselectedTabIcons: [],
