@@ -37,13 +37,20 @@ var styles = StyleSheet.create({
  * Tab
  */
 var FacebookTabBar = React.createClass({
+  
+  getInitialState(){
+    return{
+      tabBarHidden: false,
+    }
+  },
+  
   selectedTabIcons: [],
   unselectedTabIcons: [],
 
   propTypes: {
     goToPage: React.PropTypes.func,
     activeTab: React.PropTypes.number,
-    tabs: React.PropTypes.array
+    tabs: React.PropTypes.array,
   },
 
   renderTabOption(name, page) {
@@ -95,13 +102,18 @@ var FacebookTabBar = React.createClass({
   },
 
   render() {
-    return (
-      <View>
-        <View style={styles.tabs}>
-          {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
+    if (!this.state.tabBarHidden)
+    {
+      return (
+        <View>
+          <View style={styles.tabs}>
+            {this.props.tabs.map((tab, i) => this.renderTabOption(tab, i))}
+          </View>
         </View>
-      </View>
-    );
+      );
+    }else{
+      return null;
+    }
   },
 });
 

@@ -229,6 +229,7 @@ const NavigationBarRouteMapper = {
 };
 
 const routes = {
+  
   // 为每个tab生成一个导航控制器
 	navigator(initialRoute) {
 		return (
@@ -245,7 +246,7 @@ const routes = {
           if (route.sceneConfig) {
             return route.sceneConfig;
           }
-          return Navigator.SceneConfigs.VerticalUpSwipeJump;
+          return Navigator.SceneConfigs.FloatFromRight;
         }}
 				navigationBar={
 					<Navigator.NavigationBar
