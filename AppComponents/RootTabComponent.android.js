@@ -26,7 +26,7 @@ const UIExplorerApp = React.createClass({
           renderTabBar={() => <TabBar />}
           tabBarPosition={'bottom'}
           >
-          {Routes.navigator('feed', TabBar)}
+          {Routes.navigator('feed')}
           {Routes.navigator('explore')}
           {Routes.navigator('trend')}
           {Routes.navigator('me')}
