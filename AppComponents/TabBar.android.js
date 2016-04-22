@@ -2,6 +2,8 @@
 var Colors = require('../commonComponents/Colors');
 var React = require('react-native');
 var Icon = require('react-native-vector-icons/Ionicons');
+const PubSub = require('pubsub-js');
+var token;
 
 var {
   StyleSheet,
@@ -37,11 +39,16 @@ var styles = StyleSheet.create({
  * Tab
  */
 var FacebookTabBar = React.createClass({
-  
   getInitialState(){
     return{
       tabBarHidden: false,
     }
+  },
+  
+  setTabBarHidden(hidden){
+    this.setState({
+        tabBarHidden: hidden,
+    });
   },
   
   selectedTabIcons: [],
@@ -80,6 +87,20 @@ var FacebookTabBar = React.createClass({
   componentDidMount() {
     // this.setAnimationValue({value: this.props.activeTab});
     // this._listener = this.props.scrollValue.addListener(this.setAnimationValue);
+    
+    // 需要使用bind(this)
+    token = PubSub.subscribe('onHiddenChanged', function func(msg, hidden) {
+       this.setTabBarHidden(hidden);
+    }.bind(this));
+    
+    // ES6语法
+    // token = PubSub.subscribe('onHiddenChanged', (msg, hidden) => {
+    //   this.setTabBarHidden(hidden);
+    // });
+  },
+  
+  componentWillUnmount() {
+    PubSub.unsubscribe(token);
   },
   
   setAnimationValue({value}) {

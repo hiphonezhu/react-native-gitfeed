@@ -23,6 +23,7 @@ const SearchComponent = require('./SearchComponent');
 const ShowCaseComponent = require('./ShowcaseComponent');
 const TrendsComponent = require('./TrendsComponent');
 const EditProfileComponent = require('./EditProfileComponent')
+const PubSub = require('pubsub-js');
 
 const {
   Navigator,
@@ -301,11 +302,14 @@ const routes = {
 
 		switch (route.id) {
       case 'feed':
+        PubSub.publish('onHiddenChanged', false);
         // 将导航器通过FeedComponent的props.navigator进行传递
         return <FeedComponent navigator={navigator} tabLabel="Daily"/>;
       case 'user':
+        PubSub.publish('onHiddenChanged', true);
         return <UserComponent user={route.obj} navigator={navigator}/>;
       case 'web':
+        PubSub.publish('onHiddenChanged', true);
         return (
           <GHWebComponent
             webURL={route.obj.html}
@@ -314,8 +318,10 @@ const routes = {
             route={route}/>
         );
       case 'userList':
+        PubSub.publish('onHiddenChanged', true);
         return <UserListComponent userListURL={route.obj.url} navigator={navigator}/>;
       case 'login':
+        PubSub.publish('onHiddenChanged', true);
         return (
           <LoginComponent
             navigator={navigator}
@@ -323,14 +329,19 @@ const routes = {
             />
         )
       case 'org':
+        PubSub.publish('onHiddenChanged', true);
         return <OrgComponent navigator={navigator} org={route.obj}/>;
       case 'me':
+        PubSub.publish('onHiddenChanged', false);
         return <PersonalComponent navigator={navigator} tabLabel="Me"/>;
       case 'settings':
+        PubSub.publish('onHiddenChanged', true);
         return <SettingsComponent navigator={navigator}/>;
       case 'repos':
+        PubSub.publish('onHiddenChanged', true);
         return <RepoListComponent navigator={navigator} repoListURL={route.obj.url}/>;
       case 'explore':
+        PubSub.publish('onHiddenChanged', false);
         return <ExploreComponent navigator={navigator} tabLabel="Explore"/>;
       case 'search':
         /**
@@ -345,12 +356,16 @@ const routes = {
          * Maybe some RN version will change Navigator's renderScene and renderTitle
          * So need some better approach.
          */
+        PubSub.publish('onHiddenChanged', true);
         return <SearchComponent navigator={navigator} route={route}/>;
       case 'showcase':
+        PubSub.publish('onHiddenChanged', true);
         return <ShowCaseComponent navigator={navigator} showcase={route.obj}/>;
       case 'trend':
+        PubSub.publish('onHiddenChanged', false);
         return <TrendsComponent navigator={navigator} tabLabel="Trend"/>;
       case 'editprofile':
+        PubSub.publish('onHiddenChanged', true);
         return <EditProfileComponent navigator={navigator} route={route}/>;
     }
 
